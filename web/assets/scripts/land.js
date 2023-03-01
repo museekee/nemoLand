@@ -78,6 +78,9 @@ document.body.addEventListener('keydown', (e) => {
             PlayerMOVINGMAN(e)
             e.preventDefault()
             break;
+        case "Shift":
+            renderByPos(Player.position[0], Player.position[1], Player.block)
+            break;
         case "F3":
             E.HUD.devInfo.main.classList.toggle("invisibility")
             e.preventDefault()
@@ -115,6 +118,7 @@ E.HUD.devConsole.main.addEventListener("keydown", (e) => {
         }
         else return devError(`'${vA[0]}'은(는) 존재하는 명령어가 아니거나, 명령어가 올바른지 검증한 다음 다시 시도 하십시오.`);
         E.HUD.devConsole.input.value = ""
+        renderHUD()
     }
     else if (e.key == "Escape") 
         E.HUD.devConsole.main.classList.toggle("invisibility")
