@@ -48,27 +48,52 @@ body {
             font-size: 20px;
             padding: 10px;
             color: #dddddd;
-
         }
-        #DevConsole > input::before {
-            content: "> ";
+        #DEV_chatList_mom {
+            padding: 10px;
+            overflow-y: auto;
         }
+            #DEV_chatList {
+                display: flex;
+                flex-direction: column-reverse;
+                gap: 10px;
+            }
+            #DEV_chatList > span {
+                font-weight: bold;
+                word-wrap: break-word;
+            }
 #game {
     position: fixed;
     width: 250vw;
     height: 250vw;
     display: grid;
-    grid-template-rows: repeat(250, 20px);
+    grid-template-rows: repeat(250, 50px);
+    transition: all 100ms;
 }
 #game > div {
     display: grid;
-    grid-template-columns: repeat(250, 20px);
+    grid-template-columns: repeat(250, 50px);
 }
-    .player {
-        background: #ffe6cc;
+    #game * {
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position-x: center;
+    }
+    #player {
+        position: absolute;
+        background-image: url("/assets/images/player.png");
+        width: 50px;
+        height: 50px;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position-x: center;
+        z-index: 1;
     }
     .grass {
-        background: #00ee00;
+        background-image: url("/assets/images/blocks/grass.png");
+    }
+    .path {
+        background-image: url("/assets/images/blocks/path.png");
     }
 #hotbar {
     background: #222222;
@@ -83,7 +108,9 @@ body {
         align-items: center;
         justify-content: center;
         cursor: pointer;
-        border: 5px groove #000000;
+        border: 5px solid #000000;
+        background-repeat: no-repeat;
+        background-size: cover;
     }
         #hotbar > .item > img {
             position: absolute;
@@ -97,6 +124,9 @@ body {
             font-size: 25px;
             color: #eeeeee;
             font-weight: bold;
+        }
+        #hotbar > .selected {
+            border: 10px solid #ff0000;
         }
 
 
